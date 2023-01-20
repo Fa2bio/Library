@@ -3,10 +3,12 @@ package com.github.fa2bio.domain.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.github.fa2bio.domain.exception.BookNotFoundException;
 import com.github.fa2bio.domain.exception.EntityInUseException;
+import com.github.fa2bio.domain.exception.IsbnInvalidException;
 import com.github.fa2bio.domain.model.Book;
 import com.github.fa2bio.domain.repository.BookRepository;
 
@@ -21,7 +23,13 @@ public class BookService {
 	
 	@Transactional
 	public Book save(Book book) {	
-		return bookRepository.save(book);
+		Book bookCurrent = null;		
+		try {
+			bookCurrent=bookRepository.save(book);
+		} catch (DataIntegrityViolationException e) {
+			throw new IsbnInvalidException("Isbn must 10 or 13 characters");
+		}
+		return bookCurrent;
 	}
 	
 	@Transactional

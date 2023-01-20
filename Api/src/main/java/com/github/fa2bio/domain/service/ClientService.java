@@ -28,13 +28,13 @@ public class ClientService {
 
 	@Transactional
 	public Client save(Client cliente) {
-		Client clienteAtual = null;
+		Client clientCurrent = null;
 		try {
-			clienteAtual = clienteRepository.save(cliente);
+			clientCurrent = clienteRepository.save(cliente);
 		} catch (DataIntegrityViolationException e) {
 			throw new EntityInUseException(String.format(CPF_IN_USE, cliente.getCpf()));
 		}
-		return clienteAtual;
+		return clientCurrent;
 	}
 	
 	@Transactional
@@ -57,9 +57,9 @@ public class ClientService {
 	
 	@Transactional
 	public void disassociateBook(String clienteUuiCode, String livroUuiCode) {
-		Book livro = livroService.fetchOrFail(livroUuiCode);
-		Client cliente = fetchOrFail(clienteUuiCode);
-		cliente.removeBook(livro);
+		Book book = livroService.fetchOrFail(livroUuiCode);
+		Client client = fetchOrFail(clienteUuiCode);
+		client.removeBook(book);
 	}
 	
 	public Client fetchOrFail(String uuiCode) {
