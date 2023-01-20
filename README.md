@@ -51,7 +51,7 @@ spring.datasource.password=
 - After fulfilling the requirements and installing, run a LibraryApplication class as a spring boot application;
 - To access documentation for features supported by this API, access the Swagger available at http://localhost:8080/swagger-ui/#/
 
-## <a name="general-usage"></a>Uso Geral
+## <a name="general-usage"></a>General Usage
 
 ### CRUD
 
