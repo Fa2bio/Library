@@ -1,6 +1,6 @@
 create table book(
 	id bigint not null auto_increment,
-	isbn varchar(13) not null,
+	isbn varchar(14) not null,
 	client_id bigint,
 	uui_code varchar(255) not null,
 	volume_title varchar(255) not null,
