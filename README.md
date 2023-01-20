@@ -36,7 +36,7 @@
 
 - Clone the repository to your device;
 - Import it as a MAVEN project in your IDE;
-- In your Postman client, import the requests models available ate [Library.postman_collection.zip](https://github.com/Fa2bio/Library-Api/files/10462929/Library.postman_collection.zip);
+- In your Postman client, import the requests models available at [Library.postman_collection.zip](https://github.com/Fa2bio/Library-Api/files/10462929/Library.postman_collection.zip);
 - By default, this application runs using port 8080;
 - This API contains a mass of data inserted over aftermigrate;
 - It's necessary to inform the username and password of your localhost server, for that go to the application.properties file and edit:
