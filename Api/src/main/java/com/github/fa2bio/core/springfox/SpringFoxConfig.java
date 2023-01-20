@@ -38,18 +38,18 @@ public class SpringFoxConfig {
 					.globalResponses(HttpMethod.PUT, globalPostPutResponseMessages())
 					.globalResponses(HttpMethod.DELETE, globalDeleteResponseMessages())
 					.apiInfo(apiInfo())
-					.tags(new Tag("Clientes", "Manipula a entidade Cliente"),
-							new Tag("Funcionarios", "Manipula a entidade Funcionario"),
-							new Tag("Clientes - Livros", "Manipula As Relações Entre Cliente e Livros"),
-							new Tag("Funcionarios - Clientes", "Manipula As Relações Entre Funcionario e Cliente"),
-							new Tag("Livros", "Manipula a entidade Livro"));							
+					.tags(new Tag("Clients", "Manipulate the Clients entity."),
+							new Tag("Employees", "Manipulate the Employees entity."),
+							new Tag("Clients - Books", "Handles Relationships Between Clients and Books."),
+							new Tag("Employees - Clients", "Handles Relationships Between Employees and Clients."),
+							new Tag("Books", "Manipulate the Books entity"));							
 		
 	}
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("DESAFIO BITWAY")
-				.description("Biblioteca da Dona Gertrudes")
+				.title("LIBRARY-API")
+				.description("A Simple Library")
 				.version("1")
 				.contact(new Contact("Fa2bio", "https://www.github.com/Fa2bio", "fabio.s0@hotmail.com"))
 				.build();

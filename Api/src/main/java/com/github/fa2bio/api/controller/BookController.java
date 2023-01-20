@@ -24,7 +24,7 @@ import com.github.fa2bio.api.assembler.BookModelAssembler;
 import com.github.fa2bio.api.model.BookModel;
 import com.github.fa2bio.api.model.BookAbstractModel;
 import com.github.fa2bio.api.model.input.BookInput;
-import com.github.fa2bio.api.swaggeropenapi.LivroControllerSwagger;
+import com.github.fa2bio.api.swaggeropenapi.BookControllerSwagger;
 import com.github.fa2bio.domain.model.Book;
 import com.github.fa2bio.domain.model.VolumeInfo;
 import com.github.fa2bio.domain.repository.BookRepository;
@@ -33,7 +33,7 @@ import com.github.fa2bio.domain.service.BookService;
 
 @RestController
 @RequestMapping(value = "/books")
-public class BookController implements LivroControllerSwagger{
+public class BookController implements BookControllerSwagger{
 
 	@Autowired
 	private BookRepository bookRepository;

@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.fa2bio.api.swaggeropenapi.ClienteLivroControllerSwagger;
+import com.github.fa2bio.api.swaggeropenapi.ClientBookControllerSwagger;
 import com.github.fa2bio.domain.service.ClientService;
 
 @RestController
 @RequestMapping("clients/client/{clientUuiCode}")
-public class ClientBookController implements ClienteLivroControllerSwagger{
+public class ClientBookController implements ClientBookControllerSwagger{
 
 	@Autowired
 	private ClientService clientService;

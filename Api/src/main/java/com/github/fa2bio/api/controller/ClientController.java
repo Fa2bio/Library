@@ -27,7 +27,7 @@ import com.github.fa2bio.api.model.ClientBookModel;
 import com.github.fa2bio.api.model.ClientModel;
 import com.github.fa2bio.api.model.input.AddressInputModel;
 import com.github.fa2bio.api.model.input.ClientInput;
-import com.github.fa2bio.api.swaggeropenapi.ClienteControllerSwagger;
+import com.github.fa2bio.api.swaggeropenapi.ClientControllerSwagger;
 import com.github.fa2bio.domain.model.Address;
 import com.github.fa2bio.domain.model.Client;
 import com.github.fa2bio.domain.repository.ClientRepository;
@@ -36,7 +36,7 @@ import com.github.fa2bio.domain.service.ClientService;
 
 @RestController
 @RequestMapping(value = "/clients")
-public class ClientController implements ClienteControllerSwagger{
+public class ClientController implements ClientControllerSwagger{
 
 	@Autowired
 	private ClientRepository clientRepository;

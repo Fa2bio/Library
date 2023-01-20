@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.fa2bio.api.swaggeropenapi.FuncionarioClienteSwagger;
+import com.github.fa2bio.api.swaggeropenapi.EmployeeClientSwagger;
 import com.github.fa2bio.domain.service.EmployeeService;
 
 @RestController
 @RequestMapping("/employees/employee/{employeeUuiCode}")
-public class EmployeeClientController implements FuncionarioClienteSwagger{
+public class EmployeeClientController implements EmployeeClientSwagger{
 
 	@Autowired
 	private EmployeeService employeeService;

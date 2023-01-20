@@ -28,7 +28,7 @@ import com.github.fa2bio.api.model.EmployeeAbstractModel;
 import com.github.fa2bio.api.model.IncidenceModel;
 import com.github.fa2bio.api.model.input.AddressInputModel;
 import com.github.fa2bio.api.model.input.EmployeeInput;
-import com.github.fa2bio.api.swaggeropenapi.FuncionarioControllerSwagger;
+import com.github.fa2bio.api.swaggeropenapi.EmployeeControllerSwagger;
 import com.github.fa2bio.domain.model.Address;
 import com.github.fa2bio.domain.model.Employee;
 import com.github.fa2bio.domain.repository.EmployeeRepository;
@@ -37,7 +37,7 @@ import com.github.fa2bio.domain.service.EmployeeService;
 
 @RestController
 @RequestMapping(value = "/employees")
-public class EmployeeController implements FuncionarioControllerSwagger{
+public class EmployeeController implements EmployeeControllerSwagger{
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
