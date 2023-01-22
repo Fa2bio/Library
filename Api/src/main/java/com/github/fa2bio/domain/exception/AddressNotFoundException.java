@@ -5,7 +5,7 @@ public class AddressNotFoundException extends EntityNotFoundException{
 	private static final long serialVersionUID = 1L;
 
 	public AddressNotFoundException(String cep) {
-		super(String.format("Não foi possível encontrar um endereço para o cep: %s", cep));
+		super(String.format("Unable to find address for zipcode: %s", cep));
 	}
 
 }

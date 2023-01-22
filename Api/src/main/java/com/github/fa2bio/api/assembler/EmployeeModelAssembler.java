@@ -37,7 +37,7 @@ public class EmployeeModelAssembler {
 				.collect(Collectors.toList());
 	}
 	
-	public List<EmployeeAbstractModel> toCollectionPageModel(Page<Employee> employees){
+	public List<EmployeeAbstractModel> toCollectionModel(Page<Employee> employees){
 		return employees.stream()
 				.map(funcionario -> toResumoModel(funcionario))
 				.collect(Collectors.toList());

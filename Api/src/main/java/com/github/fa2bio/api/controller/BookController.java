@@ -45,16 +45,16 @@ public class BookController implements BookControllerSwagger{
 	private BookService bookService;
 	
 	@Autowired
-	private BookModelAssembler livroModelAssembler;
+	private BookModelAssembler bookModelAssembler;
 	
 	@Autowired
-	private BookInpuDisassembler livroInpuDisassembler;
+	private BookInpuDisassembler bookInpuDisassembler;
 	
 	@Override
 	@GetMapping(path="/list")
 	public List<BookAbstractModel> list(){
 		List<Book> allBooks = bookRepository.findAll();
-		return livroModelAssembler.toCollectionModel(allBooks);
+		return bookModelAssembler.toCollectionModel(allBooks);
 	}
 	
 	@Override
@@ -64,23 +64,23 @@ public class BookController implements BookControllerSwagger{
 		if(numElements<=0) numElements=1;
 		Pageable page = PageRequest.of(numPages, numElements);
 		Page<Book> allBooks = bookRepository.findAll(page);
-		return livroModelAssembler.toCollectionModel(allBooks);
+		return bookModelAssembler.toCollectionModel(allBooks);
 	}
 	
 	@Override
 	@GetMapping(path="/find/{uuiCode}")
 	public BookModel findByCode(@PathVariable String uuiCode) {
 		Book book = bookService.fetchOrFail(uuiCode);
-		return livroModelAssembler.toModel(book);
+		return bookModelAssembler.toModel(book);
 	}
 	
 	@PostMapping(path="/register")
 	public BookModel register(@RequestBody @Valid BookInput bookInput) {
-		Book book = livroInpuDisassembler.toDomainObject(bookInput);
+		Book book = bookInpuDisassembler.toDomainObject(bookInput);
 		VolumeInfo volume = isbnService.findBookByIsbn(book.getIsbn());
 		book.setVolumeInfo(volume);
 		book = bookService.save(book);
-		return livroModelAssembler.toModel(book);
+		return bookModelAssembler.toModel(book);
 	}
 	
 	@Override
@@ -90,13 +90,13 @@ public class BookController implements BookControllerSwagger{
 			@RequestBody @Valid BookInput livroInput) {
 		
 		Book bookCurrent = bookService.authorizeUpdate(uuiCode);
-		livroInpuDisassembler.copyToDomainObject(livroInput, bookCurrent);
+		bookInpuDisassembler.copyToDomainObject(livroInput, bookCurrent);
 		bookCurrent.setClient(null);
 		VolumeInfo volume = isbnService.findBookByIsbn(bookCurrent.getIsbn());
 		bookCurrent.setVolumeInfo(volume);
 		bookCurrent = bookService.save(bookCurrent);
 		
-		return livroModelAssembler.toModel(bookCurrent);
+		return bookModelAssembler.toModel(bookCurrent);
 	}
 	
 	@Override

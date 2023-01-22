@@ -71,7 +71,7 @@ public class EmployeeController implements EmployeeControllerSwagger{
 		if(numElements<=0) numElements=1;
 		Pageable page = PageRequest.of(numPages, numElements);
 		Page<Employee> allEmployees = employeeRepository.findAll(page);
-		return employeeModelAssembler.toCollectionPageModel(allEmployees);
+		return employeeModelAssembler.toCollectionModel(allEmployees);
 	}
 	
 	@Override

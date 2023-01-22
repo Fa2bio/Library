@@ -49,13 +49,13 @@ public class Client {
 		setUuiCode(UUID.randomUUID().toString());
 	}
 	
-	public void addBook(Book livro) {
-		getBooks().add(livro);
-		livro.setClient(this);
+	public void addBook(Book book) {
+		getBooks().add(book);
+		book.setClient(this);
 	}
 	
-	public void removeBook(Book livro) {
-		getBooks().remove(livro);
-		livro.setClient(null);
+	public void removeBook(Book book) {
+		getBooks().remove(book);
+		book.setClient(null);
 	}
 }

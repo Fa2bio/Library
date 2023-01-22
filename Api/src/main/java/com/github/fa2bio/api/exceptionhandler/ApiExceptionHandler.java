@@ -21,42 +21,42 @@ public class ApiExceptionHandler{
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<Object> handleException(Exception e){
-		Problem problema = Problem.builder()
+		Problem problem = Problem.builder()
 				.timestamp(LocalDateTime.now())
 				.type(e.getClass().getSimpleName())
 				.userMessage(MSG_GENERIC_FINAL_USER_ERROR).build();
 		
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problema);
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(problem);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Object> handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
-		Problem problema = Problem.builder()
+		Problem problem = Problem.builder()
 				.timestamp(LocalDateTime.now())
 				.type(e.getClass().getSimpleName())
 				.userMessage(e.getMessage())
 				.build();
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problema);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problem);
 	}
 	
 	@ExceptionHandler(BusinessException.class)
 	public ResponseEntity<Object> handleBusinessException(BusinessException e){
-		Problem problema = Problem.builder()
+		Problem problem = Problem.builder()
 				.timestamp(LocalDateTime.now())
 				.type(e.getClass().getSimpleName())
 				.userMessage(e.getMessage()).build();
 		
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problema);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problem);
 	}
 
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException e){
-		Problem problema = Problem.builder()
+		Problem problem = Problem.builder()
 				.timestamp(LocalDateTime.now())
 				.type(e.getClass().getSimpleName())
 				.userMessage(e.getMessage()).build();
 		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(problema);
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(problem);
 	}
 	
 	@ExceptionHandler(IsbnNotFoundException.class)
