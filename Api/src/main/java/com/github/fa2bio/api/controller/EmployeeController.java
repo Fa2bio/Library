@@ -93,7 +93,7 @@ public class EmployeeController implements EmployeeControllerSwagger{
 	public EmployeeModel register(@RequestBody @Valid EmployeeInput employeeInput) {
 		Employee employee = employeeInputDisassembler.toDomainObject(employeeInput);
 		AddressInputModel addressInput = cepService.findAddress(employee.getCep());
-		Address address = addressModelAssembler.toDomainObject(addressInput);
+		Address address = addressModelAssembler.toModel(addressInput);
 
 		employee.setAddress(address);		
 		employee = employeeService.save(employee);
@@ -109,7 +109,7 @@ public class EmployeeController implements EmployeeControllerSwagger{
 		Employee employeeCurrent = employeeService.fetchOrFail(uuiCode);
 		employeeInputDisassembler.copyToDomainObject(funcionarioInput, employeeCurrent);
 		AddressInputModel addressInput = cepService.findAddress(employeeCurrent.getCep());
-		Address address = addressModelAssembler.toDomainObject(addressInput);
+		Address address = addressModelAssembler.toModel(addressInput);
 		
 		employeeCurrent.setAddress(address);		
 		employeeCurrent = employeeService.save(employeeCurrent);;		

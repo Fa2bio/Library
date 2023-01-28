@@ -13,7 +13,7 @@ public class AddressModelAssembler {
 	@Autowired
 	private ModelMapper modelMapper;
 	
-	public Address toDomainObject(AddressInputModel addressInputModel) {
+	public Address toModel(AddressInputModel addressInputModel) {
 		return modelMapper.map(addressInputModel, Address.class);
 	}
 }

@@ -86,7 +86,7 @@ public class ClientController implements ClientControllerSwagger{
 	public ClientModel register(@RequestBody @Valid ClientInput clienteInput) {
 		Client client = clientInputDisassembler.toDomainObject(clienteInput);
 		AddressInputModel addressInput = cepService.findAddress(client.getCep());
-		Address address = addressModelAssembler.toDomainObject(addressInput);
+		Address address = addressModelAssembler.toModel(addressInput);
 		
 		client.setAddress(address);
 		client = clientService.save(client);		
@@ -102,7 +102,7 @@ public class ClientController implements ClientControllerSwagger{
 		Client clientCurrent = clientService.fetchOrFail(uuiCode);
 		clientInputDisassembler.copyToDomainObject(clientInput, clientCurrent);
 		AddressInputModel addressInput = cepService.findAddress(clientCurrent.getCep());;
-		Address address = addressModelAssembler.toDomainObject(addressInput);
+		Address address = addressModelAssembler.toModel(addressInput);
 		
 		clientCurrent.setAddress(address);
 		clientCurrent = clientService.save(clientCurrent);
